@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.blog.main.dao.TagsMapper">
+  <resultMap id="BaseResultMap" type="com.blog.main.model.Tags">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="tag_name" jdbcType="VARCHAR" property="tagName" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_tiem" jdbcType="TIMESTAMP" property="updateTiem" />
+    <result column="del" jdbcType="INTEGER" property="del" />
+  </resultMap>
+  <insert id="insert" parameterType="com.blog.main.model.Tags">
+    insert into tags (id, tag_name, icon, 
+      create_time, update_tiem, del
+      )
+    values (#{id,jdbcType=INTEGER}, #{tagName,jdbcType=VARCHAR}, #{icon,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTiem,jdbcType=TIMESTAMP}, #{del,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.blog.main.model.Tags">
+    insert into tags
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="tagName != null">
+        tag_name,
+      </if>
+      <if test="icon != null">
+        icon,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTiem != null">
+        update_tiem,
+      </if>
+      <if test="del != null">
+        del,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="tagName != null">
+        #{tagName,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null">
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTiem != null">
+        #{updateTiem,jdbcType=TIMESTAMP},
+      </if>
+      <if test="del != null">
+        #{del,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
