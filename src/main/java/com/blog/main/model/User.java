@@ -92,4 +92,9 @@ public class User {
     public void setUserWx(String userWx) {
         this.userWx = userWx == null ? null : userWx.trim();
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

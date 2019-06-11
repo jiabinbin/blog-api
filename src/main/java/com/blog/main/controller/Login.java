@@ -23,7 +23,7 @@ public class Login {
 
     protected ObjectMapper objectMapper = new ObjectMapper();
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json")
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public ObjectNode login(String userName, String password) {
         ObjectNode response = objectMapper.createObjectNode();
